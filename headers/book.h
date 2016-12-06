@@ -4,13 +4,15 @@
 #include "index.h"
 #include "page.h"
 #include "words.h"
+#include <iostream>
+#include <fstream>
 #include <string>
+#include<vector>
 
-const string OUTPUT_PATH = "D:\\Documents\\TestProjectOutput";
 class Book{
     private:
     string title;
-    Page* pages;
+    vector<Page> pages;
     Index index;
     Words stopList;
 
@@ -18,13 +20,15 @@ class Book{
     Book();
     ~Book();
 
+    string reduceWords (string word);
+
     void createIndex();
 
-    void createBook();
+    void createBook(istream& input);
 
     void generateStopList();
 
-    void setTitle();
+    void setTitle(istream& input);
 };
 
 #endif

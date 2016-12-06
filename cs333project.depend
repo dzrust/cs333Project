@@ -42,3 +42,37 @@
 1481001709 source:d:\programming\school\cs333\cs333project\words.cpp
 	"words.h"
 
+1481050576 source:c:\users\dzrus\documents\school\cs333project\sources\book.cpp
+	"book.h"
+	"index.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1481052432 c:\users\dzrus\documents\school\cs333project\headers\book.h
+	"index.h"
+	"page.h"
+	"words.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1481037765 c:\users\dzrus\documents\school\cs333project\headers\index.h
+	"words.h"
+
+1481037765 c:\users\dzrus\documents\school\cs333project\headers\words.h
+	<vector>
+	<iostream>
+
+1481037765 c:\users\dzrus\documents\school\cs333project\headers\page.h
+	<string>
+
+1481037765 source:c:\users\dzrus\documents\school\cs333project\sources\index.cpp
+	"index.h"
+	"words.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1481037765 source:c:\users\dzrus\documents\school\cs333project\sources\indexconstants.cpp
+

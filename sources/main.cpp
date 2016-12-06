@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include <fstream>
 #include "book.h"
 
 using namespace std;
@@ -7,9 +9,10 @@ int main(int argc, char** argv)
 {
 	if (argc == 1)
 	{
+	    std::ifstream in(argv[1]);
 		Book newBook;
 		newBook.generateStopList();
-		newBook.createBook();
+		newBook.createBook(in);
 		newBook.createIndex();
 	}
 	else

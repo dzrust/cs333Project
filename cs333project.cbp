@@ -3,6 +3,8 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="cs333project" />
+		<Option makefile="makefile" />
+		<Option execution_dir="../cs333Project" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -13,6 +15,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="headers" />
+					<Add directory="sources" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -32,17 +36,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="book.cpp" />
-		<Unit filename="book.h" />
-		<Unit filename="index.cpp" />
-		<Unit filename="index.h" />
-		<Unit filename="indexConstants.cpp" />
-		<Unit filename="indexConstants.h" />
-		<Unit filename="main.cpp" />
-		<Unit filename="page.cpp" />
-		<Unit filename="page.h" />
-		<Unit filename="words.cpp" />
-		<Unit filename="words.h" />
+		<Unit filename="Headers/book.h" />
+		<Unit filename="Headers/index.h" />
+		<Unit filename="Headers/indexConstants.h" />
+		<Unit filename="Headers/page.h" />
+		<Unit filename="Headers/words.h" />
+		<Unit filename="Sources/book.cpp" />
+		<Unit filename="Sources/index.cpp" />
+		<Unit filename="Sources/indexConstants.cpp" />
+		<Unit filename="Sources/main.cpp" />
+		<Unit filename="Sources/page.cpp" />
+		<Unit filename="Sources/words.cpp" />
+		<Unit filename="make.dep" />
+		<Unit filename="makefile" />
 		<Extensions>
 			<code_completion />
 			<envvars />
