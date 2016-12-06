@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1480998898 source:d:\programming\school\cs333\cs333project\book.cpp
+	"book.h"
+	"index.h"
+
+1481001342 d:\programming\school\cs333\cs333project\book.h
+	"index.h"
+	"page.h"
+	"words.h"
+	<string>
+
+1481001337 d:\programming\school\cs333\cs333project\index.h
+	"words.h"
+
+1481001550 d:\programming\school\cs333\cs333project\words.h
+	<vector>
+	<iostream>
+
+1480999798 d:\programming\school\cs333\cs333project\page.h
+	<string>
+
+1481001582 source:d:\programming\school\cs333\cs333project\index.cpp
+	"index.h"
+	"words.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1480896912 source:d:\programming\school\cs333\cs333project\indexconstants.cpp
+
+1480999528 source:d:\programming\school\cs333\cs333project\main.cpp
+	<iostream>
+	"book.h"
+
+1481000379 source:d:\programming\school\cs333\cs333project\page.cpp
+	"page.h"
+	<string>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1481001709 source:d:\programming\school\cs333\cs333project\words.cpp
+	"words.h"
+
