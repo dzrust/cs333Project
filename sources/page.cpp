@@ -1,26 +1,29 @@
 #include "page.h"
-#include<string>
+#include <string>
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <sstream>
 
 using namespace std;
 
 void Page::creatHtmlPage(){
     std::string page = "0000";
+    stringstream ss;
     if(pageNumber < 10){
-        page = "000" + pageNumber;
+            ss << "000" << pageNumber;
     }else{
         if(pageNumber < 100){
-        page = "00" + pageNumber;
+        ss << "00" << pageNumber;
         }else{
             if(pageNumber < 1000){
-                page = "0" + pageNumber;
+                ss <<  "0" << pageNumber;
                 }else{
-                page = "" + pageNumber;
+                ss << "" << pageNumber;
                 }
     }
     }
+    page = ss.str();
     std::string path = "D:\\Documents\\TestProjectOutput\\page" + page + ".html";
       char * cstr = new char [path.length()+1];
   std::strcpy (cstr, path.c_str());

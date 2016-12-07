@@ -13,6 +13,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="D:\Programming\School\CS333\cs333project\cs333Project\lglass18.txt" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="headers" />
@@ -36,19 +37,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Headers/book.h" />
-		<Unit filename="Headers/index.h" />
-		<Unit filename="Headers/indexConstants.h" />
-		<Unit filename="Headers/page.h" />
-		<Unit filename="Headers/words.h" />
-		<Unit filename="Sources/book.cpp" />
-		<Unit filename="Sources/index.cpp" />
-		<Unit filename="Sources/indexConstants.cpp" />
-		<Unit filename="Sources/main.cpp" />
-		<Unit filename="Sources/page.cpp" />
-		<Unit filename="Sources/words.cpp" />
+		<Unit filename="headers/book.h" />
+		<Unit filename="headers/index.h" />
+		<Unit filename="headers/indexConstants.h" />
+		<Unit filename="headers/page.h" />
+		<Unit filename="headers/words.h" />
 		<Unit filename="make.dep" />
 		<Unit filename="makefile" />
+		<Unit filename="sources/book.cpp" />
+		<Unit filename="sources/index.cpp" />
+		<Unit filename="sources/indexConstants.cpp" />
+		<Unit filename="sources/main.cpp" />
+		<Unit filename="sources/page.cpp" />
+		<Unit filename="sources/words.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	if (argc == 1)
+	if (argc == 2)
 	{
 	    std::ifstream in(argv[1]);
 		Book newBook;

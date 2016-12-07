@@ -10,7 +10,6 @@
 	};
 
     Book::~Book(){
-		delete pages;
 	};
 
 	// Strips all punctuation (except hyphens) from a word and
@@ -40,17 +39,32 @@ string reduceWords (string word)
     void Book::createBook(istream& input){
         string word;
         int count =0;
+                Page p;
+                p.isFirstPage = true;
+                p.isLastPage = false;
+                p.pageContent = "";
+                p.pageNumber = 1;
+                p.title = title;
         while(input >> word){
             if(count == MAX_LINES_PER_PAGE){
-                Page p;
+                    pages.push_back(p);
+                    p.creatHtmlPage();
+                p.isFirstPage = false;
+                p.isLastPage = false;
+                p.pageContent = word + " ";
+                p.pageNumber++;
+                count = 0;
             }else{
-                count++'
+                p.pageContent += word + " ";
+                count++;
             }
-                        word = reduceWords(word);
-        if(word != ""){
-            stopList.addWordOrLocation(word);
+            word = reduceWords(word);
+            if(word != ""){
+                index.containedWords.addWordOrLocation(word, p.pageNumber);
+            }
         }
-        }
+        p.isLastPage = true;
+        p.creatHtmlPage();
 	}
 
     void Book::generateStopList(){

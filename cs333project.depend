@@ -76,3 +76,57 @@
 
 1481037765 source:c:\users\dzrus\documents\school\cs333project\sources\indexconstants.cpp
 
+1481001582 source:d:\programming\school\cs333\cs333project\cs333project\sources\index.cpp
+	"index.h"
+	"words.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1481001337 d:\programming\school\cs333\cs333project\cs333project\headers\index.h
+	"words.h"
+
+1481001550 d:\programming\school\cs333\cs333project\cs333project\headers\words.h
+	<vector>
+	<iostream>
+
+1480896912 source:d:\programming\school\cs333\cs333project\cs333project\sources\indexconstants.cpp
+
+1481079643 source:d:\programming\school\cs333\cs333project\cs333project\sources\main.cpp
+	<iostream>
+	<fstream>
+	"book.h"
+
+1481075501 d:\programming\school\cs333\cs333project\cs333project\headers\book.h
+	"index.h"
+	"page.h"
+	"words.h"
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+
+1480999798 d:\programming\school\cs333\cs333project\cs333project\headers\page.h
+	<string>
+
+1481080166 source:d:\programming\school\cs333\cs333project\cs333project\sources\page.cpp
+	"page.h"
+	<string>
+	<iostream>
+	<fstream>
+	<cstring>
+	<sstream>
+
+1481079179 source:d:\programming\school\cs333\cs333project\cs333project\sources\words.cpp
+	"words.h"
+
+1481079643 source:d:\programming\school\cs333\cs333project\cs333project\sources\book.cpp
+	"book.h"
+	"index.h"
+	<iostream>
+	<fstream>
+	<string>
+	"indexConstants.h"
+
+1480896915 d:\programming\school\cs333\cs333project\cs333project\headers\indexconstants.h
+

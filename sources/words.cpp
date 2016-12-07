@@ -19,7 +19,9 @@ Words::~Words(){
 
 void Words::addWordOrLocation(std::string newWord, int location){
     ListNode* temp = findWord(newWord);
-    word wrd = {newWord, vector<int>{location }};
+    word wrd;
+    wrd.newWord = newWord;
+    wrd.wordLocations.push_back(location);
 
 	if(temp != 0){
         if(!(temp->data.locationAdded(location))){
@@ -30,18 +32,22 @@ void Words::addWordOrLocation(std::string newWord, int location){
 	    //add new word
 	    temp = wordHead;
         ListNode* previous = NULL;
-	    while(temp->next != 0 && temp->data.newWord > newWord){
-            previous = temp;
-            temp = temp->next;
-	    }
-	    if (previous == NULL)
-        {
-          wordHead = new ListNode (wrd, wordHead);
-        }
-        else
-        {
-          ListNode* newNode = new ListNode (wrd, temp);
-          previous->next = newNode;
+        if(temp == 0){
+            temp = new ListNode(wrd, 0);
+        }else{
+            while(temp->next != 0 && temp->data.newWord > newWord){
+                previous = temp;
+                temp = temp->next;
+            }
+            if (previous == NULL)
+            {
+              wordHead = new ListNode (wrd, wordHead);
+            }
+            else
+            {
+              ListNode* newNode = new ListNode (wrd, temp);
+              previous->next = newNode;
+            }
         }
 	}
 }

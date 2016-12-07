@@ -20,8 +20,6 @@ class Book{
     Book();
     ~Book();
 
-    string reduceWords (string word);
-
     void createIndex();
 
     void createBook(istream& input);
@@ -30,5 +28,7 @@ class Book{
 
     void setTitle(istream& input);
 };
+
+    string reduceWords (string word);
 
 #endif
