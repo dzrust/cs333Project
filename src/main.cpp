@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 {
 	if (argc == 2)
 	{
-	    std::ifstream in(argv[1]);
+		std::ifstream in(argv[1]);
 		Book newBook;
 		newBook.generateStopList();
 		newBook.createBook(in);
