@@ -9,7 +9,7 @@ using namespace std;
 
 void Index::createHtmlFile(string title) {
 	//std::ofstream out("D:\\Documents\\TestProjectOutput\\index.html");
-	std::ofstream out("C:\\TestOutput\\index.html");
+	std::ofstream out("C:\\TestOutput\\indexPage.html");
 	out << "<html>" << endl
 		<< "<head>" << endl
 		<< "<title>" << title << "</title>" << endl

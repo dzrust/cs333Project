@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <iterator>
+#include <vector>
 #include "indexConstants.h"
 #include "book.h"
 #include "index.h"
@@ -21,7 +24,8 @@ Book::~Book() {
 string reduceWords(string word)
 {
 	string result;
-	for (int i = 0; i < word.size(); ++i)
+	int length = word.size();
+	for (int i = 0; i < length; ++i)
 	{
 		char c = word[i];
 		if (c == '-')
@@ -48,8 +52,8 @@ void Book::createBook(istream& input) {
 	p.pageNumber = 1;
 	p.title = title;
 	while (!input.eof()) {
-		char* lineContent;
-		input.getline(lineContent, 999999);
+		string lineContent;
+		std::getline(input, lineContent);
 		if (count == MAX_LINES_PER_PAGE) {
 			pages.push_back(p);
 			p.creatHtmlPage();
@@ -65,16 +69,15 @@ void Book::createBook(istream& input) {
 			p.pageContent += "\n";
 		}
 		int i = 0;
-		while (lineContent[i] != '\n') {
-			if (lineContent[i] != ' ') {
-				word += lineContent[i];
-			}
-			else {
-				word = reduceWords(word);
-				if (word != "") {
-					index.containedWords.addWordOrLocation(word, p.pageNumber);
-				}
-				word = "";
+		std::istringstream buf(lineContent);
+		std::istream_iterator<std::string> beg(buf), end;
+
+		std::vector<std::string> tokens(beg, end);
+		for (auto& s : tokens) {
+			string word = s;
+			word = reduceWords(word);
+			if (word != "") {
+				index.containedWords.addWordOrLocation(word, p.pageNumber);
 			}
 		}
 	}
@@ -94,7 +97,9 @@ void Book::generateStopList() {
 void Book::setTitle(istream& input) {
 	string word;
 	bool titleFound = false;
-	while (input >> word && !titleFound) {
+	while (!input.eof() && !titleFound) {
+		string lineContent;
+		std::getline(input, lineContent);
 		if (word == "Title:") {
 			input >> title;
 			titleFound = true;
