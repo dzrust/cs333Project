@@ -37,19 +37,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="headers/book.h" />
-		<Unit filename="headers/index.h" />
-		<Unit filename="headers/indexConstants.h" />
-		<Unit filename="headers/page.h" />
-		<Unit filename="headers/words.h" />
-		<Unit filename="make.dep" />
-		<Unit filename="makefile" />
-		<Unit filename="sources/book.cpp" />
-		<Unit filename="sources/index.cpp" />
-		<Unit filename="sources/indexConstants.cpp" />
-		<Unit filename="sources/main.cpp" />
-		<Unit filename="sources/page.cpp" />
-		<Unit filename="sources/words.cpp" />
+		<Unit filename="src/book.cpp" />
+		<Unit filename="src/book.h" />
+		<Unit filename="src/bookApplication.cpp" />
+		<Unit filename="src/index.cpp" />
+		<Unit filename="src/index.h" />
+		<Unit filename="src/indexConstants.cpp" />
+		<Unit filename="src/indexConstants.h" />
+		<Unit filename="src/make.dep" />
+		<Unit filename="src/makefile" />
+		<Unit filename="src/page.cpp" />
+		<Unit filename="src/page.h" />
+		<Unit filename="src/words.cpp" />
+		<Unit filename="src/words.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,6 +1,0 @@
-book.o: book.cpp book.h index.h indexConstants.h page.h words.h
-index.o: index.cpp index.h \
- indexConstants.h words.h
-page.o: page.cpp page.h
-words.o: words.cpp words.h
-main.o: main.cpp book.h 
