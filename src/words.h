@@ -1,10 +1,10 @@
 #ifndef WORDS_H
 #define WORDS_H
 
-using namespace std;
-
 #include <vector>
 #include <iostream>
+#include "words.h"
+
 
 struct Words {
 	Words();
@@ -21,9 +21,9 @@ struct Words {
 private:
 
 	struct word {
-		word(string nWord, int nLocation);
+		word(std::string nWord, int nLocation);
 		std::string newWord;
-		vector<int> wordLocations;
+		std::vector<int> wordLocations;
 		bool locationAdded(int location);
 	};
 

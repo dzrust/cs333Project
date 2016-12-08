@@ -1,6 +1,6 @@
 DIR=${PWD}
 ASST=$(notdir ${DIR})
-MAINPROG=primaries
+MAINPROG=main
 ifneq (,$(findstring MinGW,$(PATH)))
 DISTR=MinGW
 EXE=.exe
@@ -17,7 +17,7 @@ endif
 CPPFLAGS=-g -std=c++0x -D$(DISTR)
 CFLAGS=-g
 TARGET=$(MAINPROG)$(EXE)
-CPPS=CPPS=book.cpp index.cpp indexConstants.cpp main.cpp page.cpp words.cpp
+CPPS=book.cpp index.cpp indexConstants.cpp page.cpp words.cpp main.cpp
 LINK=g++ $(CPPFLAGS)
 #
 CC=gcc

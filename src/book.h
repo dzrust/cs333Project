@@ -1,18 +1,23 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include "index.h"
-#include "page.h"
-#include "words.h"
 #include <iostream>
 #include <fstream>
 #include <string>
-#include<vector>
+#include <sstream>
+#include <iterator>
+#include <vector>
+#include "indexConstants.h"
+#include "book.h"
+#include "index.h"
+#include "words.h"
+#include "page.h"
+
 
 class Book {
 private:
-	string title;
-	vector<Page> pages;
+	std::string title;
+	std::vector<Page> pages;
 	Index index;
 	Words stopList;
 
@@ -22,13 +27,15 @@ public:
 
 	void createIndex();
 
-	void createBook(istream& input);
+	void createBook(std::istream& input);
 
 	void generateStopList();
 
-	void setTitle(istream& input);
+	void setTitle(std::istream& input);
 };
 
-string reduceWords(string word);
+std::string reduceWords(std::string word);
+
+std::string toLower(std::string word);
 
 #endif

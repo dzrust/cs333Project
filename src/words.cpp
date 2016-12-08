@@ -1,8 +1,8 @@
-
+#include <vector>
+#include <iostream>
 #include "words.h"
 
 using namespace std;
-
 Words::Words() {
 	wordHead = NULL;
 };
