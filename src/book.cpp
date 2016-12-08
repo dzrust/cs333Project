@@ -70,7 +70,7 @@ void Book::createBook(istream& input) {
 	p.pageContent = "";
 	p.pageNumber = 1;
 	p.title = title;
-	while (!input.eof()) 
+	while (!input.eof())
 	{
 		std::string lineContent;
 		std::getline(input, lineContent);
@@ -88,18 +88,17 @@ void Book::createBook(istream& input) {
 			p.pageContent += lineContent;
 			p.pageContent += "\n";
 		}
-		int i = 0;
-		std::istd::stringstream buf(lineContent);
-		std::istream_iterator<std::std::string> beg(buf), end;
+		std::stringstream buf(lineContent);
+		std::istream_iterator<std::string> beg(buf), end;
 
-		std::vector<std::std::string> tokens(beg, end);
+		std::vector<std::string> tokens(beg, end);
 		for (int i =0, length = tokens.size(); i < length; i++) {
 			std::string word = tokens[i];
 			word = reduceWords(word);
-			std::istd::stringstream buf1(word);
-			std::istream_iterator<std::std::string> beg1(buf1), end1;
+			std::stringstream buf1(word);
+			std::istream_iterator<std::string> beg1(buf1), end1;
 
-			std::vector<std::std::string> tokens1(beg1, end1);
+			std::vector<std::string> tokens1(beg1, end1);
 			for (int j =0, length2 = tokens1.size(); j < length2; j++) {
 				if (tokens1[j].size() > 3 && !index.containedWords.inStopList(tokens1[j], stopList)) {
 					index.containedWords.addWordOrLocation(tokens1[j], p.pageNumber);
@@ -107,10 +106,10 @@ void Book::createBook(istream& input) {
 			}
 		}
 	}
-	std::istd::stringstream buf(p.pageContent);
-	std::istream_iterator<std::std::string> beg(buf), end;
+	std::stringstream buf(p.pageContent);
+	std::istream_iterator<std::string> beg(buf), end;
 
-	std::vector<std::std::string> tokens(beg, end);
+	std::vector<std::string> tokens(beg, end);
 	bool finalPageContent = false;
 	for (int i =0, length = tokens.size(); i < length; i++) {
 		std::string word = tokens[i];
@@ -146,18 +145,17 @@ void Book::setTitle(istream& input) {
 	while (!input.eof() && !titleFound) {
 		std::string lineContent;
 		std::getline(input, lineContent);
-		std::istd::stringstream buf(lineContent);
-		std::istream_iterator<std::std::string> beg(buf), end;
+		std::stringstream buf(lineContent);
+		std::istream_iterator<std::string> beg(buf), end;
 
-		std::vector<std::std::string> tokens(beg, end);
-		for (auto& s : tokens) 
-		{
-			std::string word = s;
+		std::vector<std::string> tokens(beg, end);
+	for (int i =0, length = tokens.size(); i < length; i++) {
+			std::string word = tokens[i];
 			word = toLower(word);
 			if (titleFound) {
-				title += s + " ";
+				title += tokens[i] + " ";
 			}
-			if (word == "title:") 
+			if (word == "title:")
 			{
 				titleFound = true;
 			}

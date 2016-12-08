@@ -4,7 +4,6 @@
 	<Project>
 		<Option title="cs333project" />
 		<Option makefile="makefile" />
-		<Option makefile_is_custom="1" />
 		<Option execution_dir="src" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
@@ -40,11 +39,11 @@
 		</Compiler>
 		<Unit filename="src/book.cpp" />
 		<Unit filename="src/book.h" />
+		<Unit filename="src/bookApplication.cpp" />
 		<Unit filename="src/index.cpp" />
 		<Unit filename="src/index.h" />
 		<Unit filename="src/indexConstants.cpp" />
 		<Unit filename="src/indexConstants.h" />
-		<Unit filename="src/main.cpp" />
 		<Unit filename="src/make.dep" />
 		<Unit filename="src/makefile" />
 		<Unit filename="src/page.cpp" />
