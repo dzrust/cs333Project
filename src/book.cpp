@@ -22,10 +22,10 @@ Book::~Book() {
 // Strips all punctuation (except hyphens) from a word and
 // changes any upper-case characters to lower-case. Note that
 // if a word has nothing except punctuation, this may reduce
-// it to the empty string.
-string reduceWords(string word)
+// it to the empty std::string.
+std::string reduceWords(std::string word)
 {
-	string result;
+	std::string result;
 	int length = word.size();
 	for (int i = 0; i < length; ++i)
 	{
@@ -40,9 +40,9 @@ string reduceWords(string word)
 	return result;
 }
 
-string toLower(string word)
+std::string toLower(std::string word)
 {
-	string result;
+	std::string result;
 	int length = word.size();
 	for (int i = 0; i < length; ++i)
 	{
@@ -62,7 +62,7 @@ void Book::createIndex() {
 }
 
 void Book::createBook(istream& input) {
-	string word;
+	std::string word;
 	int count = 0;
 	Page p;
 	p.isFirstPage = true;
@@ -72,7 +72,7 @@ void Book::createBook(istream& input) {
 	p.title = title;
 	while (!input.eof()) 
 	{
-		string lineContent;
+		std::string lineContent;
 		std::getline(input, lineContent);
 		if (count == MAX_LINES_PER_PAGE) {
 			pages.push_back(p);
@@ -89,31 +89,31 @@ void Book::createBook(istream& input) {
 			p.pageContent += "\n";
 		}
 		int i = 0;
-		std::istringstream buf(lineContent);
-		std::istream_iterator<std::string> beg(buf), end;
+		std::istd::stringstream buf(lineContent);
+		std::istream_iterator<std::std::string> beg(buf), end;
 
-		std::vector<std::string> tokens(beg, end);
-		for (auto& s : tokens) {
-			string word = s;
+		std::vector<std::std::string> tokens(beg, end);
+		for (int i =0, length = tokens.size(); i < length; i++) {
+			std::string word = tokens[i];
 			word = reduceWords(word);
-			std::istringstream buf1(word);
-			std::istream_iterator<std::string> beg1(buf1), end1;
+			std::istd::stringstream buf1(word);
+			std::istream_iterator<std::std::string> beg1(buf1), end1;
 
-			std::vector<std::string> tokens1(beg1, end1);
-			for (auto& d : tokens1) {
-				if (d.size() > 3 && !index.containedWords.inStopList(d, stopList)) {
-					index.containedWords.addWordOrLocation(d, p.pageNumber);
+			std::vector<std::std::string> tokens1(beg1, end1);
+			for (int j =0, length2 = tokens1.size(); j < length2; j++) {
+				if (tokens1[j].size() > 3 && !index.containedWords.inStopList(tokens1[j], stopList)) {
+					index.containedWords.addWordOrLocation(tokens1[j], p.pageNumber);
 				}
 			}
 		}
 	}
-	std::istringstream buf(p.pageContent);
-	std::istream_iterator<std::string> beg(buf), end;
+	std::istd::stringstream buf(p.pageContent);
+	std::istream_iterator<std::std::string> beg(buf), end;
 
-	std::vector<std::string> tokens(beg, end);
+	std::vector<std::std::string> tokens(beg, end);
 	bool finalPageContent = false;
-	for (auto& s : tokens) {
-		string word = s;
+	for (int i =0, length = tokens.size(); i < length; i++) {
+		std::string word = tokens[i];
 		word = reduceWords(word);
 		if (word != "") {
 			finalPageContent = true;
@@ -132,7 +132,7 @@ void Book::createBook(istream& input) {
 
 void Book::generateStopList() {
 	std::ifstream in("stoplist.txt");
-	string word;
+	std::string word;
 	while (in >> word)
 	{
 		stopList.addWordOrLocation(word, 0);
@@ -141,18 +141,18 @@ void Book::generateStopList() {
 }
 
 void Book::setTitle(istream& input) {
-	string word;
+	std::string word;
 	bool titleFound = false;
 	while (!input.eof() && !titleFound) {
-		string lineContent;
+		std::string lineContent;
 		std::getline(input, lineContent);
-		std::istringstream buf(lineContent);
-		std::istream_iterator<std::string> beg(buf), end;
+		std::istd::stringstream buf(lineContent);
+		std::istream_iterator<std::std::string> beg(buf), end;
 
-		std::vector<std::string> tokens(beg, end);
+		std::vector<std::std::string> tokens(beg, end);
 		for (auto& s : tokens) 
 		{
-			string word = s;
+			std::string word = s;
 			word = toLower(word);
 			if (titleFound) {
 				title += s + " ";
