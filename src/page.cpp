@@ -5,11 +5,9 @@
 #include <sstream>
 #include "page.h"
 
-using namespace std;
-
 void Page::creatHtmlPage() {
 	std::string page = "0000";
-	stringstream ss;
+	std::stringstream ss;
 	if (pageNumber < 10) {
 		ss << "000" << pageNumber;
 	}
@@ -32,27 +30,27 @@ void Page::creatHtmlPage() {
 	char * cstr = new char[path.length() + 1];
 	std::strcpy(cstr, path.c_str());
 	std::ofstream out(cstr);
-	out << "<html>" << endl << "<head>" << endl << "<title>" << title << "</title>" << endl << "</head>" << endl << "<body>" << endl << "<p>" << endl;
+	out << "<html>" << std::endl << "<head>" << std::endl << "<title>" << title << "</title>" << std::endl << "</head>" << std::endl << "<body>" << std::endl << "<p>" << std::endl;
 	if (isFirstPage) {
-		out << "<a href=\"page0001.html\">First</a>," << endl;
-		out << "<a href=\"page0002.html\">Next</a>," << endl;
+		out << "<a href=\"page0001.html\">First</a>," << std::endl;
+		out << "<a href=\"page0002.html\">Next</a>," << std::endl;
 	}
 	else {
-		out << "<a href=\"page0001.html\">First</a>," << endl;
+		out << "<a href=\"page0001.html\">First</a>," << std::endl;
 		if (isLastPage) {
 			if (pageNumber - 1 < 10) {
-				out << "<a href=\"page000" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+				out << "<a href=\"page000" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 			}
 			else {
 				if ((pageNumber - 1) < 100) {
-					out << "<a href=\"page00" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+					out << "<a href=\"page00" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 				}
 				else {
 					if ((pageNumber - 1) < 1000) {
-						out << "<a href=\"page0" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+						out << "<a href=\"page0" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 					}
 					else {
-						out << "<a href=\"page" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+						out << "<a href=\"page" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 					}
 				}
 			}
@@ -60,42 +58,42 @@ void Page::creatHtmlPage() {
 		}
 		else {
 			if ((pageNumber - 1) < 10) {
-				out << "<a href=\"page000" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+				out << "<a href=\"page000" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 			}
 			else {
 				if ((pageNumber - 1) < 100) {
-					out << "<a href=\"page00" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+					out << "<a href=\"page00" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 				}
 				else {
 					if ((pageNumber - 1) < 1000) {
-						out << "<a href=\"page0" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+						out << "<a href=\"page0" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 					}
 					else {
-						out << "<a href=\"page" << (pageNumber - 1) << ".html\">Prev</a>," << endl;
+						out << "<a href=\"page" << (pageNumber - 1) << ".html\">Prev</a>," << std::endl;
 					}
 				}
 			}
 
 			if ((pageNumber + 1) < 10) {
-				out << "<a href=\"page000" << (pageNumber + 1) << ".html\">Next</a>," << endl;
+				out << "<a href=\"page000" << (pageNumber + 1) << ".html\">Next</a>," << std::endl;
 			}
 			else {
 				if ((pageNumber + 1) < 100) {
-					out << "<a href=\"page00" << (pageNumber + 1) << ".html\">Next</a>," << endl;
+					out << "<a href=\"page00" << (pageNumber + 1) << ".html\">Next</a>," << std::endl;
 				}
 				else {
 					if ((pageNumber + 1) < 1000) {
-						out << "<a href=\"page0" << (pageNumber + 1) << ".html\">Next</a>," << endl;
+						out << "<a href=\"page0" << (pageNumber + 1) << ".html\">Next</a>," << std::endl;
 					}
 					else {
-						out << "<a href=\"page" << (pageNumber + 1) << ".html\">Next</a>," << endl;
+						out << "<a href=\"page" << (pageNumber + 1) << ".html\">Next</a>," << std::endl;
 					}
 				}
 			}
 		}
 	}
 
-	out << "<a href=\"indexPage.html\">Index</a>" << endl <<
-		"</p>" << endl << "<hr/>" << "<pre>" << endl;
-	out << pageContent << endl << "</pre>" << endl << "</body>" << endl << "</html>" << endl;
+	out << "<a href=\"indexPage.html\">Index</a>" << std::endl <<
+		"</p>" << std::endl << "<hr/>" << "<pre>" << std::endl;
+	out << pageContent << std::endl << "</pre>" << std::endl << "</body>" << std::endl << "</html>" << std::endl;
 };

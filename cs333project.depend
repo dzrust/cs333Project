@@ -130,7 +130,7 @@
 
 1480896915 d:\programming\school\cs333\cs333project\cs333project\headers\indexconstants.h
 
-1481161357 source:c:\users\dzrus\documents\school\cs333project\src\bookapplication.cpp
+1481222971 source:c:\users\dzrus\documents\school\cs333project\src\bookapplication.cpp
 	<iostream>
 	<fstream>
 	"book.h"
@@ -171,7 +171,7 @@
 	<sstream>
 	"page.h"
 
-1481163653 source:c:\users\dzrus\documents\school\cs333project\src\index.cpp
+1481223020 source:c:\users\dzrus\documents\school\cs333project\src\index.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -181,7 +181,7 @@
 
 1481037765 source:c:\users\dzrus\documents\school\cs333project\src\indexconstants.cpp
 
-1481214773 source:c:\users\dzrus\documents\school\cs333project\src\page.cpp
+1481223046 source:c:\users\dzrus\documents\school\cs333project\src\page.cpp
 	<string>
 	<iostream>
 	<fstream>
@@ -189,8 +189,21 @@
 	<sstream>
 	"page.h"
 
-1481214773 source:c:\users\dzrus\documents\school\cs333project\src\words.cpp
+1481223056 source:c:\users\dzrus\documents\school\cs333project\src\words.cpp
 	<vector>
 	<iostream>
 	"words.h"
+
+1481222958 source:c:\users\dzrus\documents\school\cs333project\src\book.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<iterator>
+	<vector>
+	"indexConstants.h"
+	"book.h"
+	"index.h"
+	"words.h"
+	"page.h"
 

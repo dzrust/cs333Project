@@ -10,8 +10,6 @@
 #include "words.h"
 #include "page.h"
 
-using namespace std;
-
 Book::Book() {
 
 };
@@ -61,7 +59,7 @@ void Book::createIndex() {
 	index.createHtmlFile(title, pages.size());
 }
 
-void Book::createBook(istream& input) {
+void Book::createBook(std::istream& input) {
 	std::string word;
 	int count = 0;
 	Page p;
@@ -139,7 +137,7 @@ void Book::generateStopList() {
 	in.close();
 }
 
-void Book::setTitle(istream& input) {
+void Book::setTitle(std::istream& input) {
 	std::string word;
 	bool titleFound = false;
 	while (!input.eof() && !titleFound) {

@@ -2,7 +2,6 @@
 #include <iostream>
 #include "words.h"
 
-using namespace std;
 Words::Words() {
 	wordHead = NULL;
 };
@@ -75,7 +74,7 @@ Words::ListNode* Words::findWord(std::string word) {
 
 //  private:
 
-Words::word::word(string nWord, int nLocation)
+Words::word::word(std::string nWord, int nLocation)
 {
 	newWord = nWord;
 	wordLocations.push_back(nLocation);
