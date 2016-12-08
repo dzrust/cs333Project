@@ -5,7 +5,7 @@
 
 struct Index {
 	Words containedWords;
-	void createHtmlFile(std::string title);
+	void createHtmlFile(string title, int numberOfPages);
 };
 
 #endif

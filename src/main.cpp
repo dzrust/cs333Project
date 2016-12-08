@@ -12,6 +12,7 @@ int main(int argc, char** argv)
 		std::ifstream in(argv[1]);
 		Book newBook;
 		newBook.generateStopList();
+		newBook.setTitle(in);
 		newBook.createBook(in);
 		newBook.createIndex();
 	}

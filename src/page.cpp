@@ -28,7 +28,7 @@ void Page::creatHtmlPage() {
 	}
 	page = ss.str();
 	//std::string path = "D:\\Documents\\TestProjectOutput\\page" + page + ".html";
-	std::string path = "C:\\TestOutput\\page" + page + ".html";
+	std::string path = "page" + page + ".html";
 	char * cstr = new char[path.length() + 1];
 	std::strcpy(cstr, path.c_str());
 	std::ofstream out(cstr);

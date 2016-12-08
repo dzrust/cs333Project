@@ -7,9 +7,9 @@
 
 using namespace std;
 
-void Index::createHtmlFile(string title) {
+void Index::createHtmlFile(string title, int numberOfPages) {
 	//std::ofstream out("D:\\Documents\\TestProjectOutput\\index.html");
-	std::ofstream out("C:\\TestOutput\\indexPage.html");
+	std::ofstream out("indexPage.html");
 	out << "<html>" << endl
 		<< "<head>" << endl
 		<< "<title>" << title << "</title>" << endl
@@ -39,7 +39,9 @@ void Index::createHtmlFile(string title) {
 	bool firstLetter = true;
 	while (nodeHead != 0) {
 		std::string word = nodeHead->data.newWord;
-		if (nodeHead->data.wordLocations.size() <= PAGE_THRESHOLD) {
+		int length = nodeHead->data.wordLocations.size();
+		double percentage = 100*((length)/(double)(numberOfPages));
+		if (percentage <= PAGE_THRESHOLD) {
 			if (word.at(0) != currentIndex) {
 				currentIndex = word.at(0);
 				if (!firstLetter) {

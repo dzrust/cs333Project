@@ -29,7 +29,7 @@ string reduceWords(string word)
 	{
 		char c = word[i];
 		if (c == '-')
-			result += c;
+			result += " ";
 		else if (c >= 'a' && c <= 'z')
 			result += c;
 		else if (c >= 'A' && c <= 'Z')
@@ -38,8 +38,25 @@ string reduceWords(string word)
 	return result;
 }
 
+string toLower(string word)
+{
+	string result;
+	int length = word.size();
+	for (int i = 0; i < length; ++i)
+	{
+		char c = word[i];
+		if (c >= 'A' && c <= 'Z') {
+			result += (c - 'A' + 'a'); // converts to lower-case
+		}
+		else {
+			result += c;
+		}
+	}
+	return result;
+}
+
 void Book::createIndex() {
-	index.createHtmlFile(title);
+	index.createHtmlFile(title, pages.size());
 }
 
 void Book::createBook(istream& input) {
@@ -51,7 +68,8 @@ void Book::createBook(istream& input) {
 	p.pageContent = "";
 	p.pageNumber = 1;
 	p.title = title;
-	while (!input.eof()) {
+	while (!input.eof()) 
+	{
 		string lineContent;
 		std::getline(input, lineContent);
 		if (count == MAX_LINES_PER_PAGE) {
@@ -76,19 +94,45 @@ void Book::createBook(istream& input) {
 		for (auto& s : tokens) {
 			string word = s;
 			word = reduceWords(word);
-			if (word != "") {
-				index.containedWords.addWordOrLocation(word, p.pageNumber);
+			std::istringstream buf1(word);
+			std::istream_iterator<std::string> beg1(buf1), end1;
+
+			std::vector<std::string> tokens1(beg1, end1);
+			for (auto& d : tokens1) {
+				if (d.size() > 3 && !index.containedWords.inStopList(d, stopList)) {
+					index.containedWords.addWordOrLocation(d, p.pageNumber);
+				}
 			}
 		}
 	}
-	p.isLastPage = true;
-	p.creatHtmlPage();
+	std::istringstream buf(p.pageContent);
+	std::istream_iterator<std::string> beg(buf), end;
+
+	std::vector<std::string> tokens(beg, end);
+	bool finalPageContent = false;
+	for (auto& s : tokens) {
+		string word = s;
+		word = reduceWords(word);
+		if (word != "") {
+			finalPageContent = true;
+		}
+	}
+	if (finalPageContent) {
+		p.isLastPage = true;
+		p.creatHtmlPage();
+	}
+	else {
+		pages[pages.size()-1].isLastPage = true;
+		pages[pages.size() - 1].creatHtmlPage();
+
+	}
 }
 
 void Book::generateStopList() {
 	std::ifstream in("stoplist.txt");
 	string word;
-	while (in >> word) {
+	while (in >> word)
+	{
 		stopList.addWordOrLocation(word, 0);
 	}
 	in.close();
@@ -100,9 +144,21 @@ void Book::setTitle(istream& input) {
 	while (!input.eof() && !titleFound) {
 		string lineContent;
 		std::getline(input, lineContent);
-		if (word == "Title:") {
-			input >> title;
-			titleFound = true;
+		std::istringstream buf(lineContent);
+		std::istream_iterator<std::string> beg(buf), end;
+
+		std::vector<std::string> tokens(beg, end);
+		for (auto& s : tokens) 
+		{
+			string word = s;
+			word = toLower(word);
+			if (titleFound) {
+				title += s + " ";
+			}
+			if (word == "title:") 
+			{
+				titleFound = true;
+			}
 		}
 	}
 }
