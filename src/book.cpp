@@ -11,7 +11,7 @@
 #include "page.h"
 
 Book::Book() {
-
+title = "Not Set";
 };
 
 Book::~Book() {

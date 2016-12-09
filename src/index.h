@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "index.h"
 #include "words.h"
 #include "indexConstants.h"
 

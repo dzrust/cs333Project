@@ -8,7 +8,6 @@
 #include <iterator>
 #include <vector>
 #include "indexConstants.h"
-#include "book.h"
 #include "index.h"
 #include "words.h"
 #include "page.h"
